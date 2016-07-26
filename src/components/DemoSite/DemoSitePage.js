@@ -16,7 +16,8 @@ class DemoSitePage extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-sm-2 col-sm-offset-9">
-                        <Link to="/editProperty/demo-site">Edit Your Property</Link>
+                        <Link to="/editProperty/demo-site">Edit This Property</Link>
+                        <Link to="/editProperty/demo-site">Add New Property Site</Link>
                     </div>
                 </div>
                 <PropertyDescription />

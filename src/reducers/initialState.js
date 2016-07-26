@@ -4,6 +4,8 @@
 export const initialState = {
 };
 
+export const activeUser = null;
+
 /*
 export const beerDirectories = {
     beerDirectories: {},

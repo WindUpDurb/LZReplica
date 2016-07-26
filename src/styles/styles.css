@@ -47,6 +47,10 @@
 
 }
 
+#loginDropdown {
+    padding: 6px;
+}
+
 #propertyDetailsDiv {
     background-color: #E0E0E0;
     height: 200px;
