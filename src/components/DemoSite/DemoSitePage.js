@@ -3,6 +3,8 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {PropertyDescription} from "./PropertyDescription";
+import {PropertyDetailsAndIconsSection} from "./PropertyDetailsAndIconsSection";
+import {Link} from "react-router";
 
 class DemoSitePage extends React.Component {
     constructor(props) {
@@ -12,8 +14,13 @@ class DemoSitePage extends React.Component {
     render() {
         return (
             <div>
-                Demo
+                <div className="row">
+                    <div className="col-sm-2 col-sm-offset-9">
+                        <Link to="/editProperty/demo-site">Edit Your Property</Link>
+                    </div>
+                </div>
                 <PropertyDescription />
+                <PropertyDetailsAndIconsSection/>
             </div>
         );
     }

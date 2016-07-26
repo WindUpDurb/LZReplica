@@ -4,7 +4,8 @@ import React from "react";
 import { Route, IndexRoute } from "react-router";
 import App from "./components/App";
 import HomePage from "./components/home/HomePage";
-import DemoSitePage from "./components/DemoSite/DemoSitePage"
+import DemoSitePage from "./components/DemoSite/DemoSitePage";
+import EditPropertyPage from "./components/EditProperty/EditPropertyPage";
 import toastr from "toastr";
 
 export const generateRoutes = (store) => {
@@ -28,6 +29,7 @@ export const generateRoutes = (store) => {
         <Route path="/" component={App}>
             <IndexRoute component={HomePage} />
             <Route path="/demo" component={DemoSitePage}/>
+            <Route path="/editProperty/:propertyId" component={EditPropertyPage}/>
         </Route>
     );
 
