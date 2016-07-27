@@ -44,7 +44,9 @@ export function updatePropertyInDatabase(toUpdateWith) {
                 let toDispatch;
                 if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
                     toDispatch = [parsedResponse[0]];
+                    console.log("To dispatch: ", toDispatch)
                 }
+                console.log("Parsed response: ", parsedResponse)
                 dispatch(dispatchPropertyUpdates(toDispatch || parsedResponse));
             });
     };

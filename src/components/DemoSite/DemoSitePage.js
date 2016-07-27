@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {PropertyDescription} from "./PropertyDescription";
 import {PropertyDetailsAndIconsSection} from "./PropertyDetailsAndIconsSection";
 import {MapSection} from "./MapSection";
-import {ClientContactSection} from "./ClientContactSection";
+import {AgentSection} from "./AgentSection";
 import * as PropertyActions from "../../actions/PropertyActions";
 import {bindActionCreators} from "redux";
 import {Link} from "react-router";
@@ -25,7 +25,7 @@ class DemoSitePage extends React.Component {
                 <PropertyDescription property={this.props.demoData}/>
                 <PropertyDetailsAndIconsSection property={this.props.demoData}/>
                 <MapSection property={this.props.demoData} />
-                <ClientContactSection/>
+                <AgentSection />
             </div>
         );
     }

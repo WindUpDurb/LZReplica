@@ -24,9 +24,6 @@
 
 }
 
-.materialIcon {
-    color: #757575;
-}
 
 
 #parallaxContainerHome {
@@ -69,7 +66,57 @@
     font-weight: bold;
 }
 
+#agentsSectionDiv {
+    background-color: #171717;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+    margin-top: 15px;
+}
+
+#footerStyle {
+    background-color: #607d8b;
+    height: 55px;
+}
+
+#iconRow {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.whiteText {
+    color: white;
+}
+
+.greyText {
+    color: #757575;
+}
+
+.nameText {
+    font-size: 1.75em;
+}
+
+.numberText {
+    font-size: 1.5em;
+}
+
+.agentPhoto {
+    width: 170px;
+    height: 175px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contactIcons {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#agentText {
+    margin-top: 20px;
+}
+
 #propertyDetailsDiv {
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #E0E0E0;
     height: 200px;
 }

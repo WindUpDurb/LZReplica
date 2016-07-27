@@ -15,15 +15,7 @@ let propertySchema = new mongoose.Schema({
     bathrooms: {type: String},
     squareFeet: {type: String},
     lotSize: {type: String},
-    yearBuilt: {type: String},
-    agent: [{
-        name: {type: String},
-        phone: {type: String},
-        email: {type: String},
-        website: {type: String},
-        additionalInfo: {type: String},
-        agentPhoto: {type: String}
-    }]
+    yearBuilt: {type: String}
 });
 
 propertySchema.statics.addNewProperty = function (newPropertyData, callback) {
@@ -48,10 +40,24 @@ propertySchema.statics.grabDemoData = function (callback) {
 };
 
 propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
+    Property.findByIdAndUpdate(toUpdateWith._id, toUpdateWith, function (error, savedProperty) {
+        if (error) return callback(error);
+        Property.find({}, function (error, allProperties) {
+            return callback(error, allProperties);
+        });
+    });
+};
+
+
+/*
+propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
     Property.findById(toUpdateWith._id, function (error, databaseProperty) {
-        if (error || databaseProperty) return callback(error || {error: "There is no such property"});
+        if (error || !databaseProperty) return callback(error || {error: "There is no such property"});
+        console.log("To update with: ", toUpdateWith);
         let toSave = Object.assign({}, databaseProperty, toUpdateWith);
+        console.log("To save: ", toSave)
         toSave.save(function (error, savedProperty) {
+            console.log("Saved property: ", savedProperty)
             if (error) return callback(error);
            Property.find({}, function (error, allProperties) {
                return callback(error, allProperties);
@@ -59,6 +65,7 @@ propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
         });
     });
 };
+*/
 
 const Property = mongoose.model("Property", propertySchema);
 
