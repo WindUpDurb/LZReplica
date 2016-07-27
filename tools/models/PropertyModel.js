@@ -15,7 +15,15 @@ let propertySchema = new mongoose.Schema({
     bathrooms: {type: String},
     squareFeet: {type: String},
     lotSize: {type: String},
-    yearBuilt: {type: String}
+    yearBuilt: {type: String},
+    agent: [{
+        name: {type: String},
+        phone: {type: String},
+        email: {type: String},
+        website: {type: String},
+        additionalInfo: {type: String},
+        agentPhoto: {type: String}
+    }]
 });
 
 propertySchema.statics.addNewProperty = function (newPropertyData, callback) {
@@ -53,8 +61,8 @@ propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
 };
 
 const Property = mongoose.model("Property", propertySchema);
-/*
-let demoProperty = {
+
+/*let demoProperty = {
     propertyDescription: `We are an imaginative, flexible, and responsive real estate marketing company aimed at offering high quality, well priced, and valuable services. We are reliable, respected, and well liked because we make everything as easy and painless as possible.
                            Our mission is to help you sell yourself and your properties. We create images and products that represent your business and showcase your listings in the most beautiful and comprehensive way possible.
                            Michael has photographed over 2,000 homes in Los Angeles, giving him a unique perspective.

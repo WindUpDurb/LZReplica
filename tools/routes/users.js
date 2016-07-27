@@ -19,7 +19,6 @@ router.route("/")
     });
 
 router.post("/login", function (request, response) {
-    console.log("herere")
     User.authenticate(request.body, function (error, loginData) {
         if (error) return response.status(400).send(error);
         response.send(loginData);

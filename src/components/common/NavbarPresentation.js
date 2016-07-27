@@ -80,19 +80,6 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div className="form-group">
-                                            <label className="control-label">Password</label>
-                                            <div className="">
-                                                <input
-                                                    name="password"
-                                                    onChange={updateForm}
-                                                    type="password"
-                                                    className="form-control"
-                                                    placeholder="Password"/>
-                                            </div>
-                                        </div>
-                                    </li>
                                     <li><a onClick={submitForm}>Login</a></li>
                                 </ul>
                             </li>

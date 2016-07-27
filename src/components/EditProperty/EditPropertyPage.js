@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router";
 import {PropertyDetailsSection} from "./PropertyDetailsSection";
 import {HouseAndLotDetailsSection} from "./HouseAndLotDetails";
+import {EditAgentSection} from "./EditAgentSection";
 import * as PropertyActions from "../../actions/PropertyActions";
 import {bindActionCreators} from "redux";
 
@@ -40,6 +41,10 @@ class EditPropertyPage extends React.Component {
                     updateFormState={this.updateFormState}
                     />
                 <HouseAndLotDetailsSection
+                    property={this.state.form}
+                    updateFormState={this.updateFormState}
+                    />
+                <EditAgentSection
                     property={this.state.form}
                     updateFormState={this.updateFormState}
                     />

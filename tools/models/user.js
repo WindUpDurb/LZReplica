@@ -9,8 +9,7 @@ let JWT_SECRET = process.env.JWT_SECRET;
 
 let userSchema = new mongoose.Schema({
     name: {type: String},
-    email: {type: String},
-    password: {type: String}
+    email: {type: String}
 });
 
 userSchema.statics.obtainUsers = function (callback) {
@@ -21,28 +20,30 @@ userSchema.statics.obtainUsers = function (callback) {
 };
 
 
+// userSchema.statics.registerNewUser = function (newUserData, callback) {
+//     User.findOne({ email: newUserData.email }, function (error, databaseUser) {
+//         console.log("Errro: ", error)
+//         if (error || databaseUser) return callback(error || {error: "The email is already registered to a user."});
+//         bcrypt.hash(newUserData.password, 12, function (error, hash) {
+//             if (error) return callback(error);
+//             newUserData.password = hash;
+//             User.create(newUserData, function (error, savedUser) {
+//                 if (savedUser) savedUser.password = null;
+//                 return callback(error, savedUser);
+//             });
+//         });
+//     });
+// };
+
 userSchema.statics.registerNewUser = function (newUserData, callback) {
     User.findOne({ email: newUserData.email }, function (error, databaseUser) {
         if (error || databaseUser) return callback(error || {error: "The email is already registered to a user."});
-        bcrypt.hash(newUserData.password, 12, function (error, hash) {
-            if (error) return callback(error);
-            newUserData.password = hash;
             User.create(newUserData, function (error, savedUser) {
                 if (savedUser) savedUser.password = null;
                 return callback(error, savedUser);
             });
         });
-    });
 };
-
-// userSchema.statics.registerNewUser({email: "test-client@test.com", name: "Test Client", password: "password"});
-
-// userSchema.statics.deleteUserAccount = function (userId, callback) {
-//     User.findByIdAndRemove(userId, function (error) {
-//         callback(error);
-//     });
-// };
-
 
 userSchema.methods.generateToken = function () {
     let payload = {
@@ -80,5 +81,7 @@ userSchema.statics.authorization = function () {
 };
 
 let User = mongoose.model("User", userSchema);
+
+// userSchema.statics.registerNewUser({email: "demo@demo.com", name: "Demo"});
 
 module.exports = User;
