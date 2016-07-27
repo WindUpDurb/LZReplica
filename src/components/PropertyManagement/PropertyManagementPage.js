@@ -41,14 +41,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
-    let clientProperties;
-    if (state.clientProperties && Array.isArray(state.clientProperties)) {
-        clientProperties = state.clientProperties;
-    } else if (state.clientProperties && !Array.isArray(state.clientProperties)) {
-        clientProperties = [state.clientProperties];
-    }
     return {
-        clientProperties
+        clientProperties: state.clientProperties
     };
 }
 

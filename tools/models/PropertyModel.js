@@ -19,7 +19,10 @@ let propertySchema = new mongoose.Schema({
 
 propertySchema.statics.addNewProperty = function (newPropertyData, callback) {
     Property.create(newPropertyData, function (error, newProperty) {
-        return callback(error, newProperty);
+        if (error) return callback(error);
+        Property.find({}, function (error, allProperties) {
+            return callback(error, allProperties);
+        });
     });
 };
 
@@ -35,7 +38,10 @@ propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
         if (error || databaseProperty) return callback(error || {error: "There is no such property"});
         let toSave = Object.assign({}, databaseProperty, toUpdateWith);
         toSave.save(function (error, savedProperty) {
-           return callback(error, savedProperty);
+            if (error) return callback(error);
+           Property.find({}, function (error, allProperties) {
+               return callback(error, allProperties);
+           });
         });
     });
 };

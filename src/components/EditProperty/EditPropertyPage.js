@@ -57,12 +57,7 @@ EditPropertyPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     let propertyId = ownProps.params.propertyId;
-    let property;
-    if (state.clientProperties && Array.isArray(state.clientProperties)) {
-        property = state.clientProperties.filter((propertyObject) => (propertyObject._id === propertyId));
-    } else if (state.clientProperties && !Array.isArray(state.clientProperties)) {
-        property = state.clientProperties[0];
-    }
+    let property = state.clientProperties.filter((propertyObject) => (propertyObject._id === propertyId))[0];
     return {
         propertyId,
         property
