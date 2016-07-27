@@ -51,6 +51,11 @@
     padding: 6px;
 }
 
+.propertyDetailsText {
+    font-size: 2.75em;
+    font-weight: bold;
+}
+
 #propertyDetailsDiv {
     background-color: #E0E0E0;
     height: 200px;

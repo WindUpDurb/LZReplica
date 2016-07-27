@@ -13,7 +13,7 @@ export default function PropertiesReducer(state = initialState.clientProperties,
                 action.properties
             );
 
-        case types.PROPETY_UPDATE_SUCCESSFUL:
+        case types.PROPERTY_UPDATE_SUCCESSFUL:
             return (
                 action.properties
             );

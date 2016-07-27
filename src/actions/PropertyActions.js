@@ -4,8 +4,15 @@ import * as types from "./actionTypes";
 
 export function dispatchPropertyUpdates(updatedProperty) {
     return {
-        type: types.PROPETY_UPDATE_SUCCESSFUL,
+        type: types.PROPERTY_UPDATE_SUCCESSFUL,
         properties: updatedProperty
+    };
+}
+
+export function dispatchDemoData(demoData) {
+    return {
+        type: types.DEMO_DATA_SUCCESS,
+        demoData
     };
 }
 
@@ -39,6 +46,18 @@ export function updatePropertyInDatabase(toUpdateWith) {
                     toDispatch = [parsedResponse[0]];
                 }
                 dispatch(dispatchPropertyUpdates(toDispatch || parsedResponse));
+            });
+    };
+}
+
+export function grabDemoSite() {
+    return function(dispatch) {
+        return fetch("/api/properties/demosite")
+            .then(response => {
+                return response.json();
+            })
+            .then(parsedResponse => {
+                dispatch(dispatchDemoData(parsedResponse));
             });
     };
 }

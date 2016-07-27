@@ -4,11 +4,17 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {PropertyDescription} from "./PropertyDescription";
 import {PropertyDetailsAndIconsSection} from "./PropertyDetailsAndIconsSection";
+import * as PropertyActions from "../../actions/PropertyActions";
+import {bindActionCreators} from "redux";
 import {Link} from "react-router";
 
 class DemoSitePage extends React.Component {
     constructor(props) {
         super(props);
+    }
+    
+    componentWillMount() {
+        this.props.PropertyActions.grabDemoSite();
     }
 
     render() {
@@ -20,17 +26,32 @@ class DemoSitePage extends React.Component {
                         <Link to="/editProperty/demo-site">Add New Property Site</Link>
                     </div>
                 </div>
-                <PropertyDescription />
-                <PropertyDetailsAndIconsSection/>
+                <PropertyDescription property={this.props.demoData}/>
+                <PropertyDetailsAndIconsSection property={this.props.demoData}/>
             </div>
         );
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    return {
+DemoSitePage.propTypes = {
+    PropertyActions: PropTypes.object.isRequired,
+    demoData: PropTypes.object
+};
 
+function mapStateToProps(state, ownProps) {
+    let demoData;
+    if (state.demoData) {
+        demoData = state.demoData;
+    }
+    return {
+        demoData
     };
 }
 
-export default connect(mapStateToProps)(DemoSitePage);
+function mapDispatchToProps(dispatch) {
+    return {
+        PropertyActions: bindActionCreators(PropertyActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DemoSitePage);

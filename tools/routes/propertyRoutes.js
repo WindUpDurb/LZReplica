@@ -16,6 +16,13 @@ router.get("/", function (request, response) {
     });
 });
 
+router.get("/demosite", function (request, response) {
+    Property.grabDemoData(function (error, demoData) {
+        if (error) return response.status(400).send(error);
+        response.send(demoData);
+    });
+});
+
 router.post("/updateProperty", function (request, response) {
    Property.updateProperty(request.body, function (error, updatedProperty) {
        if (error) return response.status(400).send(error);

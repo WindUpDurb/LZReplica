@@ -6,26 +6,4 @@ export const initialState = {
 
 export const activeUser = null;
 export const clientProperties = null;
-/*
-export const beerDirectories = {
-    beerDirectories: {},
-    currentBeerStyle: {},
-    currentBeer: {}
-};
-
-export const beerRatingAndDiscussion = {
-    globalBeerRating: null,
-    beerDiscussion: null
-};
-
-export const breweryResults = null;
-
-export const requestsInProgress = 0;
-
-export const activeUser = null;
-
-export const beerSearch = null;
-
-export const forms = {
-  newRegistration: {}  
-};*/
+export const demoData = null;
