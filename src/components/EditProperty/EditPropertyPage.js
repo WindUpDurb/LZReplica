@@ -11,10 +11,10 @@ import {bindActionCreators} from "redux";
 class EditPropertyPage extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            form: {}
+            form: this.props.property
         };
+
         this.updateFormState = this.updateFormState.bind(this);
         this.saveForm = this.saveForm.bind(this);
     }
@@ -36,9 +36,11 @@ class EditPropertyPage extends React.Component {
             <div>
                 <div className="text-center"><h3>Edit Site</h3></div>
                 <PropertyDetailsSection
+                    property={this.state.form}
                     updateFormState={this.updateFormState}
                     />
                 <HouseAndLotDetailsSection
+                    property={this.state.form}
                     updateFormState={this.updateFormState}
                     />
                 <button className="btn btn-primary btn-raised" onClick={this.saveForm}>Save</button>
@@ -48,12 +50,22 @@ class EditPropertyPage extends React.Component {
 }
 
 EditPropertyPage.propTypes = {
-    PropertyActions: PropTypes.object
+    PropertyActions: PropTypes.object,
+    propertyId: PropTypes.string.isRequired,
+    property: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+    let propertyId = ownProps.params.propertyId;
+    let property;
+    if (state.clientProperties && Array.isArray(state.clientProperties)) {
+        property = state.clientProperties.filter((propertyObject) => (propertyObject._id === propertyId));
+    } else if (state.clientProperties && !Array.isArray(state.clientProperties)) {
+        property = state.clientProperties[0];
+    }
     return {
-
+        propertyId,
+        property
     };
 }
 

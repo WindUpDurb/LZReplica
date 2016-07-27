@@ -35,6 +35,7 @@ class NavbarContainer extends React.Component {
     render() {
         return (
             <NavbarPresentation
+                activeUser={this.props.activeUser}
                 updateForm={this.updateLoginForm}
                 submitForm={this.submitLoginForm}
                 />
@@ -43,7 +44,8 @@ class NavbarContainer extends React.Component {
 }
 
 NavbarContainer.propTypes = {
-    UserActions: PropTypes.object.isRequired
+    UserActions: PropTypes.object.isRequired,
+    activeUser: PropTypes.object
 };
 
 function mapDispatchToProps(dispatch) {
@@ -53,8 +55,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
+    let activeUser;
+    if (state.activeUser) {
+        activeUser = state.activeUser;
+    }
     return {
-
+        activeUser
     };
 }
 

@@ -9,6 +9,13 @@ router.get("/test", function (request, response) {
     response.send("Connected");
 });
 
+router.get("/", function (request, response) {
+    Property.getProperties(function (error, properties) {
+        if (error) return response.status(400).send(error);
+        response.send(properties);
+    });
+});
+
 router.post("/updateProperty", function (request, response) {
    Property.updateProperty(request.body, function (error, updatedProperty) {
        if (error) return response.status(400).send(error);

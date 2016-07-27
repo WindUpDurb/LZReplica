@@ -23,6 +23,13 @@ propertySchema.statics.addNewProperty = function (newPropertyData, callback) {
     });
 };
 
+
+propertySchema.statics.getProperties = function (callback) {
+    Property.find({}, function (error, properties) {
+        return callback(error, properties);
+    });
+};
+
 propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
     Property.findById(toUpdateWith._id, function (error, databaseProperty) {
         if (error || databaseProperty) return callback(error || {error: "There is no such property"});
@@ -34,5 +41,21 @@ propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
 };
 
 const Property = mongoose.model("Property", propertySchema);
+
+/*let demoProperty = {
+    propertyDescription: `We are an imaginative, flexible, and responsive real estate marketing company aimed at offering high quality, well priced, and valuable services. We are reliable, respected, and well liked because we make everything as easy and painless as possible.
+                           Our mission is to help you sell yourself and your properties. We create images and products that represent your business and showcase your listings in the most beautiful and comprehensive way possible.
+                           Michael has photographed over 2,000 homes in Los Angeles, giving him a unique perspective.
+                           Our team is comprised of talented and specialized people. Allow us to bring out talents together to create luxury marketing materials for you.`,
+
+    propertyAddress: "711 E. Walnut St., Unit 405, Pasadena, CA 91101",
+    siteTitle: "ShootingLA Demo Web Site",
+    bedrooms: "5.5",
+    bathrooms: "3.5",
+    squareFeet: "2500",
+    lotSize: "2800",
+    yearBuilt: "1990"
+};
+propertySchema.statics.addNewProperty(demoProperty);*/
 
 module.exports = Property;

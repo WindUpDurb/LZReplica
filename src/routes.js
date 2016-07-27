@@ -6,6 +6,7 @@ import App from "./components/App";
 import HomePage from "./components/home/HomePage";
 import DemoSitePage from "./components/DemoSite/DemoSitePage";
 import EditPropertyPage from "./components/EditProperty/EditPropertyPage";
+import PropertyManagementPage from "./components/PropertyManagement/PropertyManagementPage";
 import toastr from "toastr";
 
 export const generateRoutes = (store) => {
@@ -29,7 +30,8 @@ export const generateRoutes = (store) => {
         <Route path="/" component={App}>
             <IndexRoute component={HomePage} />
             <Route path="/demo" component={DemoSitePage}/>
-            <Route path="/editProperty/:propertyId" component={EditPropertyPage}/>
+            <Route path="/editProperty/:propertyId" property component={EditPropertyPage}/>
+            <Route path="propertyManagement" component={PropertyManagementPage}/>
         </Route>
     );
 

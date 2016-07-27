@@ -2,8 +2,7 @@
 
 import React, {PropTypes} from "react";
 
-export const HouseAndLotDetailsSection = ({updateFormState}) => {
-    
+export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
     return (
         <div className="container">
             <div className="row">
@@ -13,6 +12,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Price: $</label>
                                 <input
+                                    value={property.propertyPrice || "To Be Updated"}
                                     name="propertyPrice"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -24,6 +24,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Bedroom(s)</label>
                                 <input
+                                    value={property.bedrooms || "To Be Updated"}
                                     name="bedrooms"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -37,6 +38,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Bathroom(s)</label>
                                 <input
+                                    value={property.bathrooms || "To Be Updated"}
                                     name="bathrooms"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -48,6 +50,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Square Feet</label>
                                 <input
+                                    value={property.squareFeet || "To Be Updated"}
                                     name="squareFeet"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -61,6 +64,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Lot Size</label>
                                 <input
+                                    value={property.lotSize || "To Be Updated"}
                                     name="lotSize"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -72,6 +76,7 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Year Built</label>
                                 <input
+                                    value={property.yearBuilt || "To Be Updated"}
                                     name="yearBuilt"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -87,5 +92,6 @@ export const HouseAndLotDetailsSection = ({updateFormState}) => {
 };
 
 HouseAndLotDetailsSection.propTypes = {
+    property: PropTypes.object,
     updateFormState: PropTypes.func.isRequired
 };

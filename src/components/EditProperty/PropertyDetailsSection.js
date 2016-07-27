@@ -2,7 +2,7 @@
 
 import React, {PropTypes} from "react";
 
-export const PropertyDetailsSection = ({updateFormState}) => {
+export const PropertyDetailsSection = ({property, updateFormState}) => {
 
     return (
         <div id="propertyDetailsEditDiv" className="container">
@@ -11,7 +11,8 @@ export const PropertyDetailsSection = ({updateFormState}) => {
                     <div className="row">
                         <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                             <label className="control-label">Site Title</label>
-                            <input 
+                            <input
+                                value={property.siteTitle || "To be updated."}
                                 name="siteTitle"
                                 className="form-control" 
                                 onChange={updateFormState}
@@ -23,7 +24,8 @@ export const PropertyDetailsSection = ({updateFormState}) => {
                     <div className="row">
                         <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                             <label className="control-label">Address</label>
-                            <input 
+                            <input
+                                value={property.propertyAddress || "To be updated."}
                                 name="propertyAddress"
                                 onChange={updateFormState}
                                 className="form-control" 
@@ -37,7 +39,8 @@ export const PropertyDetailsSection = ({updateFormState}) => {
                         <div className="form-group">
                             <label className="col-sm-2 control-label">Description</label>
                             <div className="col-sm-7">
-                                <textarea 
+                                <textarea
+                                    value={property.propertyDescription || "To be updated."}
                                     name="propertyDescription"
                                     onChange={updateFormState}
                                     className="form-control" 
@@ -52,6 +55,7 @@ export const PropertyDetailsSection = ({updateFormState}) => {
                         <div className="col-sm-9 col-sm-offset-3 form-group label-floating propertyInput">
                             <label className="control-label">Floor Plan Text</label>
                             <input
+                                value={property.floorPlanText || "To be updated."}
                                 name="floorPlanText"
                                 onChange={updateFormState}
                                 className="form-control" 
@@ -70,5 +74,6 @@ export const PropertyDetailsSection = ({updateFormState}) => {
 
 
 PropertyDetailsSection.propTypes = {
-    updateFormState: PropTypes.func.isRequired
+    updateFormState: PropTypes.func.isRequired,
+    property: PropTypes.object
 };
