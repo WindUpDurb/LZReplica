@@ -6,6 +6,7 @@ import {bindActionCreators} from "redux";
 import {ParallaxContainer} from "./ParallaxContainer";
 import {Welcome} from "./WelcomeDiv";
 import {YouTubeSection} from "./YouTubeSectionHome";
+import {Footer} from "../common/Footer";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class HomePage extends React.Component {
                 <ParallaxContainer />
                 <Welcome />
                 <YouTubeSection />
+                <Footer/>
             </div>
         );
     }

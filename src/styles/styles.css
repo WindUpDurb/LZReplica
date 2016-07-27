@@ -4,14 +4,27 @@
     margin-bottom: 0;
 }
 
+.boxShadow {
+    box-shadow: 5px 5px 2px #888888;
+}
+
 #body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     background-color: white;
 }
 
+#imageHeader {
+    margin-bottom: 20px;
+}
+
 .navLink {
     font-size: 1em;
+}
+
+#saveButton {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .welcomeTextColor {

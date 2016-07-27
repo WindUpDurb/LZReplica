@@ -6,6 +6,7 @@ import {PropertyDescription} from "./PropertyDescription";
 import {PropertyDetailsAndIconsSection} from "./PropertyDetailsAndIconsSection";
 import {MapSection} from "./MapSection";
 import {AgentSection} from "./AgentSection";
+import {ImageHeader} from "./ImageHeader";
 import * as PropertyActions from "../../actions/PropertyActions";
 import {bindActionCreators} from "redux";
 import {Link} from "react-router";
@@ -22,6 +23,7 @@ class DemoSitePage extends React.Component {
     render() {
         return (
             <div>
+                <ImageHeader />
                 <PropertyDescription property={this.props.demoData}/>
                 <PropertyDetailsAndIconsSection property={this.props.demoData}/>
                 <MapSection property={this.props.demoData} />

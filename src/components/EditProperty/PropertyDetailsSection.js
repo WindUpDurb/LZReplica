@@ -36,15 +36,15 @@ export const PropertyDetailsSection = ({property, updateFormState}) => {
 
                     <br/>
                     <div className="row">
-                        <div className="form-group">
-                            <label className="col-sm-2 control-label">Description</label>
+                        <div className="form-group label-floating">
+                            <label className="control-label">Description</label>
                             <div className="col-sm-7">
                                 <textarea
                                     value={property.propertyDescription || "To be updated."}
                                     name="propertyDescription"
                                     onChange={updateFormState}
                                     className="form-control" 
-                                    rows="2"/>
+                                    rows="3"/>
                                 <span className="help-block">Please provide a detail description on the property.</span>
                             </div>
                         </div>

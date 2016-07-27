@@ -5,7 +5,6 @@ import {bindActionCreators} from "redux";
 import * as material from "../../node_modules/bootstrap-material-design/dist/js/material.min";
 import {connect} from "react-redux";
 import NavbarContainer from "./common/NavbarContainer";
-import {Footer} from "./common/Footer";
 
 class App extends React.Component {
     constructor(props) {
@@ -17,7 +16,6 @@ class App extends React.Component {
             <div>
                 <NavbarContainer />
                 {this.props.children}
-                <Footer/>
                 <script>
                     $(document).ready(function () {
                     $.material.init()

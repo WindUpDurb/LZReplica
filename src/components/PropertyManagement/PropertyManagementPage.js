@@ -3,6 +3,7 @@
 import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import * as PropertyActions from "../../actions/PropertyActions";
+import {Link} from "react-router";
 import {Property} from "./Property";
 import {connect} from "react-redux";
 
@@ -25,6 +26,7 @@ class PropertyManagementPage extends React.Component {
             <div className="container text-center">
                 <h3>Client Properties</h3>
                 {properties}
+                <Link to="/" className="btn btn-primary btn-raised boxShadow">Add a New Property</Link>
             </div>
         );
     }

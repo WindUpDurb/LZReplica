@@ -1,6 +1,7 @@
 "use strict";
 
 import * as types from "./actionTypes";
+import toastr from "toastr";
 
 export function dispatchPropertyUpdates(updatedProperty) {
     return {
@@ -44,9 +45,9 @@ export function updatePropertyInDatabase(toUpdateWith) {
                 let toDispatch;
                 if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
                     toDispatch = [parsedResponse[0]];
-                    console.log("To dispatch: ", toDispatch)
+                    toastr.info("Your property and has been updated and saved.");
                 }
-                console.log("Parsed response: ", parsedResponse)
+                toastr.info("Your property and has been updated and saved.");
                 dispatch(dispatchPropertyUpdates(toDispatch || parsedResponse));
             });
     };
