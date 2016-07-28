@@ -28,7 +28,8 @@ class NavbarContainer extends React.Component {
         return this.setState({loginForm});
     }
 
-    submitLoginForm() {
+    submitLoginForm(event) {
+        event.preventDefault();
         this.props.UserActions.submitLogin(this.state.loginForm);
     }
     

@@ -1,6 +1,6 @@
 #navbar-container {
     background-color: #455A64;
-    height: 63px;
+    height: 70px;
     margin-bottom: 0;
 }
 
@@ -14,11 +14,17 @@
     background-color: white;
 }
 
+.welcomeIcon {
+    height: 34px;
+    margin-right: 3px;
+}
+
 #imageHeader {
     margin-bottom: 20px;
 }
 
 .navLink {
+    margin-top: 3px;
     font-size: 1em;
 }
 
@@ -34,7 +40,6 @@
 .welcomeText {
     font-size: 1.5em;
     color: #757575;
-
 }
 
 
@@ -45,7 +50,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
 }
 
 #propertyDescriptionHeader {
@@ -54,7 +59,15 @@
 
 .propertyDetailDescriptor {
     font-size: 2em;
+}
 
+#logoImage {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    display: block;
+    bottom: 30%;
+    width: 100%;
 }
 
 #loginDropdown {

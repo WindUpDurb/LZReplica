@@ -35,7 +35,7 @@ class EditPropertyPage extends React.Component {
     render() {
         return (
             <div className="text-center">
-                <div className="text-center"><h3>Edit Site</h3></div>
+                <div className="text-center"><h3>Demo Edit Site</h3></div>
                 <PropertyDetailsSection
                     property={this.state.form}
                     updateFormState={this.updateFormState}

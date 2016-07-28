@@ -23,10 +23,21 @@ export const AgentSection = () => {
             </div>
             <div id="iconRow" className="row">
                 <div className="col-sm-offset-8 col-sm-4">
-                    <img className="contactIcons" src="/statics/twitterIcon.png" />
-                    <img className="contactIcons" src="/statics/linkedin.png" />
-                    <img className="contactIcons" src="/statics/githubIcon.png" />
-                    <img className="contactIcons" src="/statics/blogIcon.png" />
+                    <a href="https://twitter.com/WindUpDurb" target="_blank">
+                        <img className="contactIcons" src="/statics/twitterIcon.png" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/david-urbina-589327b9" target="_blank">
+                        <img className="contactIcons" src="/statics/linkedin.png" />
+                    </a>
+                    <a href="https://github.com/WindUpDurb/LZReplica" target="_blank">
+                        <img className="contactIcons" src="/statics/githubIcon.png" />
+                    </a>
+                    <a href="http://www.windupdurb.com" target="_blank">
+                        <img className="contactIcons" src="/statics/blogIcon.png" />
+                    </a>
+                    <a href="http://windupdurb.github.io/portfolio-site" target="_blank">
+                        <img className="contactIcons" src="/statics/blogIcon.png" />
+                    </a>
                 </div>
             </div>
         </div>

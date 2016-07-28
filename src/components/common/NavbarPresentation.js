@@ -16,7 +16,7 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                             <span className="icon-bar"/>
                         </button>
                         <Link id="logoImage" to="/" className="navbar-brand">
-                            <img className="img-responsive" src="/statics/listingZenLogo.png"/>
+                            <img id="brandImage" className="img-responsive" src="/statics/listingZenLogo.png"/>
                         </Link>
                     </div>
                     <div className="navbar-collapse collapse navbar-responsive-collapse">
@@ -27,11 +27,10 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                             <li className="navLink"><Link to="/">CONTACT US</Link></li>
 
                             <li className="dropdown">
-                                <a href="bootstrap-elements.html" data-target="#" className="dropdown-toggle" data-toggle="dropdown">CLIENT ACTIONS
+                                <a href="bootstrap-elements.html" data-target="#" className="dropdown-toggle navLink" data-toggle="dropdown">CLIENT ACTIONS
                                     <b className="caret"/></a>
                                 <ul id="loginDropdown" className="dropdown-menu">
                                     <li><Link to="/propertyManagement">Property Management</Link></li>
-                                    <li><a>Logout</a></li>
                                 </ul>
                             </li>
 
@@ -63,14 +62,14 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                             <li className="navLink"><Link to="/">CONTACT US</Link></li>
 
                             <li className="dropdown">
-                                <a href="bootstrap-elements.html" data-target="#" className="dropdown-toggle"
+                                <a href="bootstrap-elements.html" data-target="#" className="dropdown-toggle navLink"
                                    data-toggle="dropdown">LOGIN
                                     <b className="caret"/></a>
                                 <ul id="loginDropdown" className="dropdown-menu">
                                     <li>
-                                        <div className="form-group">
+                                        <form className="form-group" onSubmit={submitForm}>
                                             <label className="control-label">Email</label>
-                                            <div className="">
+                                            <div>
                                                 <input
                                                     name="email"
                                                     onChange={updateForm}
@@ -78,7 +77,7 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                                                     className="form-control"
                                                     placeholder="Email"/>
                                             </div>
-                                        </div>
+                                        </form>
                                     </li>
                                     <li><a onClick={submitForm}>Login</a></li>
                                 </ul>
