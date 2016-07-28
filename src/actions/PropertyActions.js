@@ -8,7 +8,7 @@ import * as FunctionTools from "./FunctionTools";
 export function dispatchPropertyUpdates(updatedProperty) {
     return {
         type: types.PROPERTY_UPDATE_SUCCESSFUL,
-        properties: updatedProperty
+        property: updatedProperty
     };
 }
 
@@ -47,7 +47,7 @@ export function addNewProperty(newProperty) {
                 if(!parsedResponse.error) {
                     let toDispatch = {};
                     if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
-                        toDispatch[parsedResponse[0]._id] = parsedResponse[0];
+                        toDispatch[parsedResponse._id] = parsedResponse;
                     } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
                         toDispatch = FunctionTools.arrayToObject(parsedResponse);
                     }
@@ -79,13 +79,11 @@ export function updatePropertyInDatabase(toUpdateWith) {
             })
             .then(parsedResponse => {
                 let toDispatch = {};
-                if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
-                    toDispatch[parsedResponse[0]._id] = parsedResponse[0];
-                } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
-                    toDispatch = FunctionTools.arrayToObject(parsedResponse);
+                if (!parsedResponse.error) {
+                    toDispatch[parsedResponse._id] = parsedResponse;
                 }
                 toastr.info("Your property and has been updated and saved.");
-                return dispatch(dispatchPropertyUpdates(toDispatch));
+                dispatch(dispatchPropertyUpdates(toDispatch));
             })
             .catch(error => {
                 console.log("Error: ", error);
@@ -133,7 +131,7 @@ export function retrieveProperties() {
             .then(parsedResponse => {
                 let toDispatch = {};
                 if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
-                    toDispatch[parsedResponse[0]._id] = parsedResponse[0];
+                    toDispatch[parsedResponse._id] = parsedResponse;
                 } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
                     toDispatch = FunctionTools.arrayToObject(parsedResponse);
                 }

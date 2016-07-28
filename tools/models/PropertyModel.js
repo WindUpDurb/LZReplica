@@ -47,10 +47,7 @@ propertySchema.statics.grabPropertyData = function (propertyId, callback) {
 
 propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
     Property.findByIdAndUpdate(toUpdateWith._id, toUpdateWith, function (error, savedProperty) {
-        if (error) return callback(error);
-        Property.find({}, function (error, allProperties) {
-            return callback(error, allProperties);
-        });
+        return callback(error, savedProperty);
     });
 };
 

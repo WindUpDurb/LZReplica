@@ -44,7 +44,6 @@ DemoSitePage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    console.log("own props: ", ownProps.routeParams.propertyId)
     let demoData;
     if (state.demoData) {
         demoData = state.demoData;

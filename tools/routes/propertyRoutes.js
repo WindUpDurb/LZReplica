@@ -29,7 +29,7 @@ router.get("/demosite", function (request, response) {
 router.post("/updateProperty", function (request, response) {
    Property.updateProperty(request.body, function (error, updatedProperty) {
        if (error) return response.status(400).send(error);
-       response.send(updatedProperty);
+       response.status(200).send(updatedProperty);
    });
 });
 

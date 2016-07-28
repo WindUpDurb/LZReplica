@@ -44,6 +44,7 @@ class EditPropertyPage extends React.Component {
                     updateFormState={this.updateFormState}
                     />
                 <button id="saveButton" className="btn btn-primary btn-raised" onClick={this.saveForm}>Save</button>
+                <Link to="/propertyManagement" className="btn btn-default btn-raised">Property Management</Link>
                 <Footer/>
             </div>
         );
@@ -58,7 +59,7 @@ EditPropertyPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     let propertyId = ownProps.params.propertyId;
-    let property = state.clientProperties[propertyId];
+    let property = Object.assign({}, state.clientProperties[propertyId]);
     return {
         propertyId,
         property
