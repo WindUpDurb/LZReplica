@@ -11,7 +11,7 @@ import mongoose from "mongoose";
 /* eslint-disable no-console */
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4005;
 const MONGOURL = process.env.MONGODB_URI || "mongodb://localhost/listing-replica";
 
 mongoose.connect(MONGOURL, function (error) {
