@@ -12,7 +12,7 @@ export const PropertyDetailsSection = ({property, updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Site Title</label>
                                 <input
-                                    value={property.siteTitle || "To be updated."}
+                                    value={property.siteTitle}
                                     name="siteTitle"
                                     className="form-control"
                                     onChange={updateFormState}
@@ -25,7 +25,7 @@ export const PropertyDetailsSection = ({property, updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                 <label className="control-label">Address</label>
                                 <input
-                                    value={property.propertyAddress || "To be updated."}
+                                    value={property.propertyAddress}
                                     name="propertyAddress"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -40,7 +40,7 @@ export const PropertyDetailsSection = ({property, updateFormState}) => {
                                 <label className="control-label">Description</label>
                                 <div className="col-sm-7">
                                 <textarea
-                                    value={property.propertyDescription || "To be updated."}
+                                    value={property.propertyDescription}
                                     name="propertyDescription"
                                     onChange={updateFormState}
                                     className="form-control"
@@ -55,7 +55,7 @@ export const PropertyDetailsSection = ({property, updateFormState}) => {
                             <div className="col-sm-9 col-sm-offset-3 form-group label-floating propertyInput">
                                 <label className="control-label">Floor Plan Text</label>
                                 <input
-                                    value={property.floorPlanText || "To be updated."}
+                                    value={property.floorPlanText}
                                     name="floorPlanText"
                                     onChange={updateFormState}
                                     className="form-control"

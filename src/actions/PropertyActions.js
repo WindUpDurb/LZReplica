@@ -3,6 +3,7 @@
 import * as types from "./actionTypes";
 import toastr from "toastr";
 import {browserHistory} from "react-router";
+import * as FunctionTools from "./FunctionTools";
 
 export function dispatchPropertyUpdates(updatedProperty) {
     return {
@@ -44,9 +45,14 @@ export function addNewProperty(newProperty) {
             })
             .then(parsedResponse => {
                 if(!parsedResponse.error) {
-                    console.log("prsed response: ", parsedResponse);
+                    let toDispatch = {};
+                    if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
+                        toDispatch[parsedResponse[0]._id] = parsedResponse[0];
+                    } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
+                        toDispatch = FunctionTools.arrayToObject(parsedResponse);
+                    }
+                    dispatch(dispatchPropertiesData(toDispatch));
                     browserHistory.push("/propertyManagement");
-                   // dispatch(dispatchPropertiesData(toDispatch || parsedResponse));
                 }
             })
             .catch(error => {
@@ -72,13 +78,18 @@ export function updatePropertyInDatabase(toUpdateWith) {
                 return response.json();
             })
             .then(parsedResponse => {
-                let toDispatch;
+                let toDispatch = {};
                 if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
-                    toDispatch = [parsedResponse[0]];
-                    toastr.info("Your property and has been updated and saved.");
+                    toDispatch[parsedResponse[0]._id] = parsedResponse[0];
+                } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
+                    toDispatch = FunctionTools.arrayToObject(parsedResponse);
                 }
                 toastr.info("Your property and has been updated and saved.");
-                dispatch(dispatchPropertyUpdates(toDispatch || parsedResponse));
+                return dispatch(dispatchPropertyUpdates(toDispatch));
+            })
+            .catch(error => {
+                console.log("Error: ", error);
+                toastr.error(error);
             });
     };
 }
@@ -91,6 +102,9 @@ export function grabSiteData(propertyId) {
             })
             .then(parsedResponse => {
                 dispatch(dispatchDemoData(parsedResponse));
+            })
+            .catch(error => {
+                toastr.error(error);
             });
     };
 }
@@ -103,6 +117,9 @@ export function grabDemoSite() {
             })
             .then(parsedResponse => {
                 dispatch(dispatchDemoData(parsedResponse));
+            })
+            .catch(error => {
+                toastr.error(error);
             });
     };
 }
@@ -114,14 +131,17 @@ export function retrieveProperties() {
                 return response.json();
             })
             .then(parsedResponse => {
-                let toDispatch;
+                let toDispatch = {};
                 if (!parsedResponse.error && !Array.isArray(parsedResponse)) {
-                    toDispatch = [parsedResponse[0]];
+                    toDispatch[parsedResponse[0]._id] = parsedResponse[0];
+                } else if (!parsedResponse.error && Array.isArray(parsedResponse)) {
+                    toDispatch = FunctionTools.arrayToObject(parsedResponse);
                 }
-                dispatch(dispatchPropertiesData(toDispatch || parsedResponse));
+                dispatch(dispatchPropertiesData(toDispatch));
             })
             .catch(error => {
                 console.log("Error: ", error);
             });
     };
 }
+

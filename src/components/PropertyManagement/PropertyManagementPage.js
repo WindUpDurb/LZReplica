@@ -6,6 +6,7 @@ import * as PropertyActions from "../../actions/PropertyActions";
 import {Link} from "react-router";
 import {Property} from "./Property";
 import {connect} from "react-redux";
+import * as FunctionTools from "../../actions/FunctionTools";
 
 
 class PropertyManagementPage extends React.Component {
@@ -43,8 +44,12 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state, ownProps) {
+    let properties;
+    if (state.clientProperties) {
+        properties = FunctionTools.arrayOfValues(state.clientProperties);
+    }
     return {
-        clientProperties: state.clientProperties
+        clientProperties: properties
     };
 }
 

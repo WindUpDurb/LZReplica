@@ -13,7 +13,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Price: $</label>
                                     <input
-                                        value={property.propertyPrice || "To Be Updated"}
+                                        value={property.propertyPrice}
                                         name="propertyPrice"
                                         onChange={updateFormState}
                                         className="form-control"
@@ -25,7 +25,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Bedroom(s)</label>
                                     <input
-                                        value={property.bedrooms || "To Be Updated"}
+                                        value={property.bedrooms}
                                         name="bedrooms"
                                         onChange={updateFormState}
                                         className="form-control"
@@ -39,7 +39,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Bathroom(s)</label>
                                     <input
-                                        value={property.bathrooms || "To Be Updated"}
+                                        value={property.bathrooms}
                                         name="bathrooms"
                                         onChange={updateFormState}
                                         className="form-control"
@@ -51,7 +51,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Square Feet</label>
                                     <input
-                                        value={property.squareFeet || "To Be Updated"}
+                                        value={property.squareFeet}
                                         name="squareFeet"
                                         onChange={updateFormState}
                                         className="form-control"
@@ -65,7 +65,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Lot Size</label>
                                     <input
-                                        value={property.lotSize || "To Be Updated"}
+                                        value={property.lotSize}
                                         name="lotSize"
                                         onChange={updateFormState}
                                         className="form-control"
@@ -77,7 +77,7 @@ export const HouseAndLotDetailsSection = ({property, updateFormState}) => {
                                 <div className="col-sm-9 col-sm-offset-3 form-group label-floating">
                                     <label className="control-label">Year Built</label>
                                     <input
-                                        value={property.yearBuilt || "To Be Updated"}
+                                        value={property.yearBuilt}
                                         name="yearBuilt"
                                         onChange={updateFormState}
                                         className="form-control"

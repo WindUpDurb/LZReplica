@@ -15,7 +15,6 @@ class EditPropertyPage extends React.Component {
         this.state = {
             form: this.props.property
         };
-
         this.updateFormState = this.updateFormState.bind(this);
         this.saveForm = this.saveForm.bind(this);
     }
@@ -59,7 +58,7 @@ EditPropertyPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     let propertyId = ownProps.params.propertyId;
-    let property = state.clientProperties.filter((propertyObject) => (propertyObject._id === propertyId))[0];
+    let property = state.clientProperties[propertyId];
     return {
         propertyId,
         property
