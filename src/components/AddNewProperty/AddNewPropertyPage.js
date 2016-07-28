@@ -13,35 +13,35 @@ class AddNewPropertyPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            form: this.props.property
+            newProperty: {}
         };
 
         this.updateFormState = this.updateFormState.bind(this);
-        this.saveForm = this.saveForm.bind(this);
+        this.addNewProperty = this.addNewProperty.bind(this);
     }
 
     updateFormState(event) {
         let field = event.target.name;
-        let form = this.state.form;
+        let form = this.state.newProperty;
         form[field] = event.target.value;
-        return this.setState({form});
+        return this.setState({newProperty: form});
     }
 
-    saveForm() {
-        this.props.PropertyActions.updatePropertyInDatabase(this.state.form);
+    addNewProperty() {
+       this.props.PropertyActions.addNewProperty(this.state.newProperty);
     }
 
     render() {
         return (
             <div className="text-center">
-                <div className="text-center"><h3>Edit Site</h3></div>
+                <div className="text-center"><h3>Add New Property</h3></div>
                 <PropertyDetailsSection
                     updateFormState={this.updateFormState}
                 />
                 <HouseAndLotDetailsSection
                     updateFormState={this.updateFormState}
                 />
-                <button id="saveButton" className="btn btn-primary btn-raised" onClick={this.saveForm}>Save</button>
+                <button id="saveButton" className="btn btn-primary btn-raised" onClick={this.addNewProperty}>Save</button>
                 <Footer/>
             </div>
         );

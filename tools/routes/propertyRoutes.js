@@ -5,14 +5,17 @@ const router = express.Router();
 
 const Property = require("../models/PropertyModel");
 
-router.get("/test", function (request, response) {
-    response.send("Connected");
-});
-
 router.get("/", function (request, response) {
     Property.getProperties(function (error, properties) {
         if (error) return response.status(400).send(error);
         response.send(properties);
+    });
+});
+
+router.get("/getPropertyData/:propertyId", function (request, response) {
+    Property.grabPropertyData(request.params.propertyId, function (error, property) {
+        if (error) return response.status(400).send(error);
+        response.send(property);
     });
 });
 

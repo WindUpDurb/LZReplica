@@ -26,7 +26,7 @@ class PropertyManagementPage extends React.Component {
             <div className="container text-center">
                 <h3>Client Properties</h3>
                 {properties}
-                <Link to="/" className="btn btn-primary btn-raised boxShadow">Add a New Property</Link>
+                <Link to="/addNewProperty" className="btn btn-primary btn-raised boxShadow">Add a New Property</Link>
             </div>
         );
     }

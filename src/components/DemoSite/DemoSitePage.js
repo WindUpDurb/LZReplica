@@ -17,7 +17,11 @@ class DemoSitePage extends React.Component {
     }
     
     componentWillMount() {
-        this.props.PropertyActions.grabDemoSite();
+        if (!this.props.propertyId) {
+            this.props.PropertyActions.grabDemoSite();
+        } else if (this.props.propertyId) {
+            this.props.PropertyActions.grabSiteData(this.props.propertyId);
+        }
     }
 
     render() {
@@ -35,16 +39,19 @@ class DemoSitePage extends React.Component {
 
 DemoSitePage.propTypes = {
     PropertyActions: PropTypes.object.isRequired,
-    demoData: PropTypes.object
+    demoData: PropTypes.object,
+    propertyId: PropTypes.string
 };
 
 function mapStateToProps(state, ownProps) {
+    console.log("own props: ", ownProps.routeParams.propertyId)
     let demoData;
     if (state.demoData) {
         demoData = state.demoData;
     }
     return {
-        demoData
+        demoData,
+        propertyId: ownProps.routeParams.propertyId
     };
 }
 

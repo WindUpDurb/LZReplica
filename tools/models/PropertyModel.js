@@ -39,6 +39,12 @@ propertySchema.statics.grabDemoData = function (callback) {
     });
 };
 
+propertySchema.statics.grabPropertyData = function (propertyId, callback) {
+    Property.findOne({_id: propertyId}, function (error, demoData) {
+        return callback(error, demoData);
+    });
+};
+
 propertySchema.statics.updateProperty = function (toUpdateWith, callback) {
     Property.findByIdAndUpdate(toUpdateWith._id, toUpdateWith, function (error, savedProperty) {
         if (error) return callback(error);

@@ -15,9 +15,9 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                             <span className="icon-bar"/>
                             <span className="icon-bar"/>
                         </button>
-                        <a id="logoImage" href="/" className="navbar-brand">
+                        <Link id="logoImage" to="/" className="navbar-brand">
                             <img className="img-responsive" src="/statics/listingZenLogo.png"/>
-                        </a>
+                        </Link>
                     </div>
                     <div className="navbar-collapse collapse navbar-responsive-collapse">
                         <ul className="nav navbar-nav navbar-right">
@@ -51,9 +51,9 @@ export const NavbarPresentation = ({activeUser, submitForm, updateForm}) => {
                             <span className="icon-bar"/>
                             <span className="icon-bar"/>
                         </button>
-                        <a id="logoImage" href="/" className="navbar-brand">
+                        <Link id="logoImage" to="/" className="navbar-brand">
                             <img className="img-responsive" src="/statics/listingZenLogo.png"/>
-                        </a>
+                        </Link>
                     </div>
                     <div className="navbar-collapse collapse navbar-responsive-collapse">
                         <ul className="nav navbar-nav navbar-right">

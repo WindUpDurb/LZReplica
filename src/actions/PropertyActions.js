@@ -2,6 +2,7 @@
 
 import * as types from "./actionTypes";
 import toastr from "toastr";
+import {browserHistory} from "react-router";
 
 export function dispatchPropertyUpdates(updatedProperty) {
     return {
@@ -24,6 +25,35 @@ export function dispatchPropertiesData(properties) {
     };
 }
 
+
+export function addNewProperty(newProperty) {
+    return function (dispatch) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        let options = {
+            method: "POST",
+            credentials: "same-origin",
+            headers: headers,
+            mode: "cors",
+            cache: "default",
+            body: JSON.stringify(newProperty)
+        };
+        return fetch("/api/properties/addNewProperty", options)
+            .then(response => {
+                return response.json();
+            })
+            .then(parsedResponse => {
+                if(!parsedResponse.error) {
+                    console.log("prsed response: ", parsedResponse);
+                    browserHistory.push("/propertyManagement");
+                   // dispatch(dispatchPropertiesData(toDispatch || parsedResponse));
+                }
+            })
+            .catch(error => {
+                toastr.error(error);
+            });
+    };
+}
 
 export function updatePropertyInDatabase(toUpdateWith) {
     return function (dispatch) {
@@ -49,6 +79,18 @@ export function updatePropertyInDatabase(toUpdateWith) {
                 }
                 toastr.info("Your property and has been updated and saved.");
                 dispatch(dispatchPropertyUpdates(toDispatch || parsedResponse));
+            });
+    };
+}
+
+export function grabSiteData(propertyId) {
+    return function(dispatch) {
+        return fetch(`/api/properties/getPropertyData/${propertyId}`)
+            .then(response => {
+                return response.json();
+            })
+            .then(parsedResponse => {
+                dispatch(dispatchDemoData(parsedResponse));
             });
     };
 }
